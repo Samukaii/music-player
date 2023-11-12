@@ -1,20 +1,59 @@
-<div class="artist__photo">
-	<img [ngSrc]="music.album.coverMedium" width="200" height="200" alt="Artist photo">
+<div class="player__controls">
+	<button
+		(click)="player.previous()"
+		mat-mini-fab
+		color="primary"
+	>
+		<mat-icon>skip_previous</mat-icon>
 
+	</button>
+
+	@if (player.audioInfo().status === "playing") {
+		<button
+			(click)="player.pause()"
+			[disabled]="!player.currentMusic()"
+			mat-fab
+			color="primary"
+		>
+			<mat-icon>pause</mat-icon>
+
+		</button>
+	} @else {
+		<button
+			(click)="player.play()"
+			[disabled]="!player.currentMusic()"
+			mat-fab
+			color="primary"
+		>
+			<mat-icon>play_arrow</mat-icon>
+
+		</button>
+
+	}
+	<button
+		(click)="player.next()"
+		mat-mini-fab
+		color="primary"
+	>
+		<mat-icon>skip_next</mat-icon>
+
+	</button>
 </div>
-<div class="artist__info">
-	<h3>
-		{{music.title}}
-	</h3>
 
-	<p>
-		Artista: {{music.artist.name}}
-	</p>
-	<p>
-		Álbum: {{music.album.title}}
-	</p>
-	<audio controls>
-		<source [src]="music.preview" type="audio/ogg">
-		Your browser does not support the audio element.
-	</audio>
+<div class="time">
+	<div>
+		{{currentTime()}}
+	</div>
+	<mat-slider [min]="0" [max]="player.audioInfo().duration || 0" [step]="1">
+		<input
+			matSliderThumb
+			(valueChange)="player.changeTime($event)"
+			[value]="player.audioInfo().currentTime"
+		>
+	</mat-slider>
+
+	<div>
+		{{duration()}}
+	</div>
+
 </div>

@@ -1,0 +1,18 @@
+:host {
+	padding: 1rem;
+	background-color: #2d2f3a;
+	border-radius: 6px;
+	display: flex;
+	gap: 1rem;
+}
+
+.artist__photo {
+	img {
+		border-radius: 6px;
+	}
+}
+
+.actions {
+	display: flex;
+	gap: .5rem;
+}

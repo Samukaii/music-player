@@ -1,0 +1,15 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-x: hidden;
+
+}
+router-outlet {
+	max-height: 70vh;
+	display: block;
+}
+
+app-audio-player {
+	height: 30vh;
+}

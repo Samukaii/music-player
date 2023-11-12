@@ -1,7 +1,7 @@
 import { Artist } from "./artist";
 import { Album } from "./album";
 
-export interface MusicSearch {
+export interface Music {
 	id: number
 	readable: boolean
 	title: string

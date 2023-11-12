@@ -1,0 +1,32 @@
+<div class="artist__photo">
+	<img [ngSrc]="music.album.coverMedium" width="150" height="150" alt="Artist photo">
+
+</div>
+<div class="artist__info">
+	<h3>
+		{{music.title}}
+	</h3>
+
+	<p>
+		Artista: {{music.artist.name}}
+	</p>
+	<p>
+		Álbum: {{music.album.title}}
+	</p>
+	<div class="actions">
+		<button
+			(click)="player.play(music)"
+			mat-mini-fab
+			color="primary"
+		>
+			<mat-icon>play_arrow</mat-icon>
+		</button>
+		<button
+			(click)="player.addToQueue(music)"
+			mat-mini-fab
+			color="primary"
+		>
+			<mat-icon>playlist_add</mat-icon>
+		</button>
+	</div>
+</div>

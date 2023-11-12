@@ -1,11 +1,46 @@
 :host {
-	padding: 1rem;
-	background-color: #3b3d48;
-	border-radius: 6px;
+	border-top: solid 2px #3f51b5;
+	background-color: #141418;
+	width: 100%;
 	display: flex;
-	gap: 1rem;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 25px;
+	padding: 1rem;
+	bottom: 0;
 }
 
-.artist__info {
+mat-icon {
+	color: white;
+	width: fit-content;
+	height: fit-content;
+}
 
+.player__play {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 100%;
+	background-color: blue;
+	cursor: pointer;
+}
+
+.player__controls {
+	width: fit-content;
+	gap: 1rem;
+	display: flex;
+	align-items: center;
+	margin-bottom: -.5rem;
+}
+
+.time {
+	margin-bottom: -1rem;
+	display: flex;
+	width: 40%;
+	gap: 1rem;
+	align-items: center;
+	justify-content: center;
+
+	mat-slider {
+		width: 100%;
+	}
 }

@@ -1,17 +1,20 @@
 import { Component, inject, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from "@angular/forms";
-import { MusicRepositoryService } from "./music-repository.service";
-import { MusicSearch } from "../models/music-search";
+import { Music } from "../../models/music";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { AudioPlayerService } from "../../audio-player/audio-player.service";
 
 @Component({
-  selector: 'app-search',
-  standalone: true,
-	imports: [CommonModule, RouterOutlet, ReactiveFormsModule],
-  templateUrl: './musics-list.component.html',
-  styleUrl: './musics-list.component.scss'
+	selector: 'app-musics-item',
+	standalone: true,
+	imports: [CommonModule, RouterOutlet, ReactiveFormsModule, NgOptimizedImage, MatButtonModule, MatIconModule],
+	templateUrl: './musics-item.component.html',
+	styleUrls: ['./musics-item.component.scss']
 })
-export class MusicsListComponent {
-	@Input() musics: MusicSearch;
+export class MusicsItemComponent {
+	@Input({required: true}) music!: Music;
+	player = inject(AudioPlayerService);
 }
