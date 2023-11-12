@@ -1,0 +1,10 @@
+@for (item of repository.musics(); track item.id) {
+	<div>
+		{{ item.title }}
+		-
+		{{ item.type }}
+	</div>
+} @empty {
+	Nenhum resultado
+}
+
